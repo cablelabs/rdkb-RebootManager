@@ -1,0 +1,14 @@
+- move arch/intel_usg/boards/arm_shared/cmpnt_build_custom_pre.mk to
+       cmpnt_build_custom_pre_arm.mk
+- mkdir ./config
+- move arch/intel_usg/boards/arm_shared/config/RebootManager.xml to
+       config/RebootManager_arm.xml
+- move arch/pc/boards/rdkb/config/RebootManager.xml to
+       config/RebootManager_pc.xml
+- move arch/intel_usg/boards/arm_shared/source to
+       source-arm
+- move arch/pc/boards/rdkb/source to
+       source-pc
+- remove arch directory
+- move Makefile Makefile.orig
+- add ChangeLog file

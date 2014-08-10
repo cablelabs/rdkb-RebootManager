@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--
+   Copyright [2014] [Cisco Systems, Inc.]
+
+   Licensed under the Apache License, Version 2.0 (the \"License\");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an \"AS IS\" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+
+<dataModelInfo>
+
+	<version>1</version>
+
+	<moduleName>Reboot Manager</moduleName>
+
+	<author>Qi Zeng</author>
+
+	<description>Reboot Manager Data Model</description>
+
+	<library>
+
+	</library>
+
+	<objects>
+
+		<object>
+
+			<baseObjName>com.cisco.spvtg.ccsp.rm.</baseObjName>
+
+			<name>Configuration</name>
+
+			<objectType>object</objectType>
+
+			<functions>
+
+				<func_GetParamBoolValue>Configuration_GetParamBoolValue</func_GetParamBoolValue>
+
+				<func_GetParamIntValue>Configuration_GetParamIntValue</func_GetParamIntValue>
+
+				<func_GetParamUlongValue>Configuration_GetParamUlongValue</func_GetParamUlongValue>
+
+				<func_GetParamStringValue>Configuration_GetParamStringValue</func_GetParamStringValue>
+
+				<func_SetParamBoolValue>Configuration_SetParamBoolValue</func_SetParamBoolValue>
+
+				<func_SetParamIntValue>Configuration_SetParamIntValue</func_SetParamIntValue>
+
+				<func_SetParamUlongValue>Configuration_SetParamUlongValue</func_SetParamUlongValue>
+
+				<func_SetParamStringValue>Configuration_SetParamStringValue</func_SetParamStringValue>
+
+				<func_Validate>Configuration_Validate</func_Validate>
+
+				<func_Commit>Configuration_Commit</func_Commit>
+
+				<func_Rollback>Configuration_Rollback</func_Rollback>
+
+			</functions>
+
+			<parameters>
+
+				<parameter>
+
+					<name>OngoingCriticalEventWaitTimer</name>
+
+					<type>unsignedInt</type>
+
+					<syntax>uint32</syntax>
+
+					<writable>true</writable>
+
+				</parameter>
+
+				<parameter>
+
+					<name>SystemRebootSignalTimer</name>
+
+					<type>unsignedInt</type>
+
+					<syntax>uint32</syntax>
+
+					<writable>true</writable>
+
+				</parameter>
+
+				<parameter>
+
+					<name>SoftwareWatchdogTimerInterval</name>
+
+					<type>unsignedInt</type>
+
+					<syntax>uint32</syntax>
+
+					<writable>true</writable>
+
+				</parameter>
+
+			</parameters>
+
+		</object>
+
+		<object>
+
+			<baseObjName>com.cisco.spvtg.ccsp.rm.</baseObjName>
+
+			<name>Reboot</name>
+
+			<objectType>object</objectType>
+
+			<functions>
+
+				<func_GetParamBoolValue>Reboot_GetParamBoolValue</func_GetParamBoolValue>
+
+				<func_GetParamIntValue>Reboot_GetParamIntValue</func_GetParamIntValue>
+
+				<func_GetParamUlongValue>Reboot_GetParamUlongValue</func_GetParamUlongValue>
+
+				<func_GetParamStringValue>Reboot_GetParamStringValue</func_GetParamStringValue>
+
+				<func_SetParamBoolValue>Reboot_SetParamBoolValue</func_SetParamBoolValue>
+
+				<func_SetParamIntValue>Reboot_SetParamIntValue</func_SetParamIntValue>
+
+				<func_SetParamUlongValue>Reboot_SetParamUlongValue</func_SetParamUlongValue>
+
+				<func_SetParamStringValue>Reboot_SetParamStringValue</func_SetParamStringValue>
+
+				<func_Validate>Reboot_Validate</func_Validate>
+
+				<func_Commit>Reboot_Commit</func_Commit>
+
+				<func_Rollback>Reboot_Rollback</func_Rollback>
+
+			</functions>
+
+			<parameters>
+
+				<parameter>
+
+					<name>Enable</name>
+
+					<type>boolean</type>
+
+					<syntax>bool</syntax>
+
+					<writable>true</writable>
+
+				</parameter>
+
+				<parameter>
+
+					<name>Status</name>
+
+					<type>string</type>
+
+					<syntax>string</syntax>
+
+				</parameter>
+
+			</parameters>
+
+		</object>
+
+	</objects>
+
+</dataModelInfo>
+
+

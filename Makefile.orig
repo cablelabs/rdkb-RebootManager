@@ -1,0 +1,58 @@
+#######################################################################
+#   Copyright [2014] [Cisco Systems, Inc.]
+# 
+#   Licensed under the Apache License, Version 2.0 (the \"License\");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+# 
+#       http://www.apache.org/licenses/LICENSE-2.0
+# 
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an \"AS IS\" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#######################################################################
+
+include $(CCSP_ROOT_DIR)/arch/ccsp_common.mk
+
+MKBASE   = $(CCSP_ROOT_DIR)/$(CCSP_ARCH_DIR_NAME)
+
+include $(MKBASE)/$(CcspArch)/boards/$(CcspBoard)/ccsp_build_common.mk
+
+INCPATH += $(ComponentSrcDir)/DataModelBackEnd
+
+source_files := $(call add_files_from_src,,'*.c')
+source_files += $(call add_files_from_board,,'*.c')
+
+obj_files := $(addprefix $(ComponentBuildDir)/, $(source_files:%.c=%.o))
+-include $(obj_files:.o=.d)
+
+INCPATH += $(ComponentSrcDir)
+
+CFLAGS += $(addprefix -I, $(INCPATH))
+
+target := $(ComponentBuildDir)/CcspRmSsp
+
+all: $(target)
+
+$(target): $(obj_files)
+	@echo "Creating Binary...[$(ComponentBaseDir)/$@]"
+	$(CC) $(LDFLAGS) $^ -o $@ 2> $(@:%=%.warn) || (cat $(@:%=%.warn); exit 1)
+
+		
+$(ComponentSrcDir)/%.o: %.c 
+	-mkdir -p $(dir $@)
+	@$(CC) -MD $(CFLAGS) $(INCFLAGS) $< -c -o $@
+	
+
+clean:
+	rm -rf $(ComponentBuildDir)
+
+install:
+	@-mkdir -p $(CCSP_OUT_DIR)/rm
+	@cp -f $(target) $(CCSP_OUT_DIR)/rm
+	cp -f $(ComponentBoardCfgDir)/RebootManager.xml $(CCSP_OUT_DIR)/rm
+#	cp -f $(ComponentSrcDir)/RebootManager.xml $(CCSP_OUT_DIR)/rm	// this was the original
+
+LDFLAGS   += -lccsp_common
