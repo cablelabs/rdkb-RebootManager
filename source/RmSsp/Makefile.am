@@ -9,5 +9,5 @@ ACLOCAL_AMFLAGS = -I m4
 hardware_platform = i686-linux-gnu
 bin_PROGRAMS = CcspRmSsp
 CcspRmSsp_CPPFLAGS = -I$(top_srcdir)/source/DataModelBackEnd $(CPPFLAGS)
-CcspRmSsp_SOURCES = ssp_messagebus_interface.c ssp_main.c ssp_action.c ../../source-pc/CcspRmHal.c ../../source/DataModelBackEnd/cosa_apis_reboot.c ../../source/DataModelBackEnd/plugin_main.c ../../source/DataModelBackEnd/rm_util.c ../../source/DataModelBackEnd/cosa_apis_configuration.c
+CcspRmSsp_SOURCES = ssp_messagebus_interface.c ssp_main.c ssp_action.c CcspRmHal.c ../../source/DataModelBackEnd/cosa_apis_reboot.c ../../source/DataModelBackEnd/plugin_main.c ../../source/DataModelBackEnd/rm_util.c ../../source/DataModelBackEnd/cosa_apis_configuration.c
 CcspRmSsp_LDFLAGS =  -lccsp_common
