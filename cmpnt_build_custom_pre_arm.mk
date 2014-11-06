@@ -30,3 +30,8 @@
 
 include $(SDK_PATH)/.config
 
+#
+# Custom build definitions
+#
+CFLAGS  += -funwind-tables
+LDFLAGS += -lubacktrace 

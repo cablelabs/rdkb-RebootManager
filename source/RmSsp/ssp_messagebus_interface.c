@@ -18,8 +18,6 @@
 
     description:
 
-        This is the template file of ssp_messagebus_interface.c for XxxxSsp.
-        You may fill in the functions below if needed.
 
         * ssp_Mbi_Initialize
         * ssp_finalize

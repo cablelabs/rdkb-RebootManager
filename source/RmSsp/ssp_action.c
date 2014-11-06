@@ -18,8 +18,6 @@
 
     description:
 
-        This is the template file of ssp_action.c for RmSsp.
-        Please replace "XXXX" with your own ssp name with the same up/lower cases.
 
         SSP implementation of functions:
 
