@@ -18,8 +18,6 @@
 
     description:
 
-        This is the template file of ssp_global.h for XxxxSsp.
-        You may add the header files you want to include.
 
     ------------------------------------------------------------------------------
 

@@ -50,7 +50,6 @@
 
 #define THIS_PLUGIN_VERSION                         1
 int     BackEndInitDone = 0;
-void *                       g_pDslhDmlAgent; 
 
 int ANSC_EXPORT_API
 COSA_Init
@@ -68,7 +67,7 @@ COSA_Init
     }   
     
     pPlugInfo->uPluginVersion       = THIS_PLUGIN_VERSION;
-    g_pDslhDmlAgent                 = pPlugInfo->hDmlAgent;
+
     /* register the back-end apis for the data model */
     pPlugInfo->RegisterFunction(pPlugInfo->hContext, "Configuration_GetParamBoolValue",  Configuration_GetParamBoolValue);
     pPlugInfo->RegisterFunction(pPlugInfo->hContext, "Configuration_GetParamIntValue",  Configuration_GetParamIntValue);

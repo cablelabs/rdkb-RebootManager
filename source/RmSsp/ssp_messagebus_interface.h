@@ -18,8 +18,6 @@
 
     description:
 
-        This is the template file of ssp_messagebus_interface.h for XxxxSsp.
-        You don't need to do anything here.
 
     ------------------------------------------------------------------------------
 

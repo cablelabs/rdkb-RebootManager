@@ -18,8 +18,6 @@
 
     description:
 
-        This is the template file of ssp_main.c for XxxxSsp.
-        Please replace "XXXX" with your own ssp name with the same up/lower cases.
 
   ------------------------------------------------------------------------------
 
@@ -112,13 +110,23 @@ int  cmd_dispatch(int  command)
 static void _print_stack_backtrace(void)
 {
 #ifdef __GNUC__
-#if (!defined _BUILD_ANDROID) && (!defined _COSA_VEN501_) && (!defined _NO_EXECINFO_H_)
+#if (!defined _BUILD_ANDROID) && (!defined _COSA_VEN501_)
 	void* tracePtrs[100];
 	char** funcNames = NULL;
 	int i, count = 0;
 
+        int fd;
+        const char* path = "/nvram/rmssp_backtrace";
+        fd = open(path, O_RDWR | O_CREAT, 0777);
+        if (fd < 0)
+        {
+            fprintf(stderr, "failed to open backtrace file: %s", path);
+            return;
+        }
+
 	count = backtrace( tracePtrs, 100 );
-	backtrace_symbols_fd( tracePtrs, count, 2 );
+	backtrace_symbols_fd( tracePtrs, count, fd );
+    close(fd);
 
 	funcNames = backtrace_symbols( tracePtrs, count );
 

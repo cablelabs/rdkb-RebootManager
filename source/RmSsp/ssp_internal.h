@@ -18,7 +18,6 @@
 
     description:
 
-        This is the template file of ssp_internal.h for RmSsp.
 
     ------------------------------------------------------------------------------
 
